@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .card {
+            height: 80vh;
+            width: 100px;
+            margin-left: 20px;
+            border-radius: 50px;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .first {
+            background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+            width: 850px;
+        }
+
+        .second {
+            background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .third {
+            background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80");
+        }
+
+        .fourth {
+            background-image: url("https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
+        }
+
+        .fifth {
+            background-image: url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card first"></div>
+        <div class="card second"></div>
+        <div class="card third"></div>
+        <div class="card fourth"></div>
+        <div class="card fifth"></div>
+    </div>
+
+    <script>
+        const card = document.querySelectorAll('.card');
+        for (let i = 0; i < card.length; i++) {
+            card[i].addEventListener('click',function () {
+                for(let k=0;k<card.length;k++){
+                    if(k !== i){
+                        card[k].classList.remove('active');
+                        card[k].style.width = '100px';
+                        card[k].style.transition = 'width 0.7s ease-in';
+                    }
+                };
+                this.classList.toggle('active');
+                if(this.classList.contains('active')){
+                this.style.width = '850px';
+                this.style.transition = 'width 0.7s ease-in';
+                }else{
+                    this.width.width = '100px'
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
